@@ -37,6 +37,10 @@
 
     ```
 
+    Se modifica la dependencia de Spring Boot para que incluya la dependencia de webjars con la diferencia que se modifica webjars-locator porque generaba error y se le agrega la version.
+    ![](./img/Captura3.PNG)
+
+
 ## Front-End - Vistas
 
 1. Cree el directorio donde residirá la aplicación JavaScript. Como se está usando SpringBoot, la ruta para poner en el mismo contenido estático (páginas Web estáticas, aplicaciones HTML5/JS, etc) es:  
@@ -70,13 +74,19 @@
     ```
     http://localhost:8080/index.html
     ```
+    ![](./img/Captura4.PNG)
+
     2. Al abrir la consola de desarrollador del navegador, NO deben aparecer mensajes de error 404 (es decir, que las librerías de JavaScript se cargaron correctamente).
 
 ## Front-End - Lógica
 
 1. Ahora, va a crear un Módulo JavaScript que, a manera de controlador, mantenga los estados y ofrezca las operaciones requeridas por la vista. Para esto tenga en cuenta el [patrón Módulo de JavaScript](https://toddmotto.com/mastering-the-module-pattern/), y cree un módulo en la ruta static/js/app.js .
 
+    ![](./img/Captura5.PNG)
+
 2. Copie el módulo provisto (apimock.js) en la misma ruta del módulo antes creado. En éste agréguele más planos (con más puntos) a los autores 'quemados' en el código.
+
+    ![](./img/Captura6.PNG)
 
 3. Agregue la importación de los dos nuevos módulos a la página HTML (después de las importaciones de las librerías de jQuery y Bootstrap):
     ```html
@@ -84,24 +94,35 @@
     <script src="js/app.js"></script>
     ```
 
-3. Haga que el módulo antes creado mantenga de forma privada:
+4. Haga que el módulo antes creado mantenga de forma privada:
     * El nombre del autor seleccionado.
     * El listado de nombre y tamaño de los planos del autor seleccionado. Es decir, una lista objetos, donde cada objeto tendrá dos propiedades: nombre de plano, y número de puntos del plano.
 
     Junto con una operación pública que permita cambiar el nombre del autor actualmente seleccionado.
 
+    ![](./img/Captura7.PNG)
 
-4. Agregue al módulo 'app.js' una operación pública que permita actualizar el listado de los planos, a partir del nombre de su autor (dado como parámetro). Para hacer esto, dicha operación debe invocar la operación 'getBlueprintsByAuthor' del módulo 'apimock' provisto, enviándole como _callback_ una función que:
+
+5. Agregue al módulo 'app.js' una operación pública que permita actualizar el listado de los planos, a partir del nombre de su autor (dado como parámetro). Para hacer esto, dicha operación debe invocar la operación 'getBlueprintsByAuthor' del módulo 'apimock' provisto, enviándole como _callback_ una función que:
 
     * Tome el listado de los planos, y le aplique una función 'map' que convierta sus elementos a objetos con sólo el nombre y el número de puntos.
 
     * Sobre el listado resultante, haga otro 'map', que tome cada uno de estos elementos, y a través de jQuery agregue un elemento \<tr\> (con los respectvos \<td\>) a la tabla creada en el punto 4. Tenga en cuenta los [selectores de jQuery](https://www.w3schools.com/JQuery/jquery_ref_selectors.asp) y [los tutoriales disponibles en línea](https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-append-and-remove-table-row-dynamically). Por ahora no agregue botones a las filas generadas.
 
+    ![](./img/Captura10.PNG)
+
+    ![](./img/Captura8.PNG)
+
     * Sobre cualquiera de los dos listados (el original, o el transformado mediante 'map'), aplique un 'reduce' que calcule el número de puntos. Con este valor, use jQuery para actualizar el campo correspondiente dentro del DOM.
 
-5. Asocie la operación antes creada (la de app.js) al evento 'on-click' del botón de consulta de la página.
+        ![](./img/Captura11.PNG)
 
-6. Verifique el funcionamiento de la aplicación. Inicie el servidor, abra la aplicación HTML5/JavaScript, y rectifique que al ingresar un usuario existente, se cargue el listado del mismo.
+
+6. Asocie la operación antes creada (la de app.js) al evento 'on-click' del botón de consulta de la página.
+
+7. Verifique el funcionamiento de la aplicación. Inicie el servidor, abra la aplicación HTML5/JavaScript, y rectifique que al ingresar un usuario existente, se cargue el listado del mismo.
+   
+   ![](./img/Captura9.PNG)
 
 ## Para la próxima semana
 

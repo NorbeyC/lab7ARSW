@@ -45,6 +45,8 @@
     src/main/resources/static
     ```
 
+    ![](./img/Captura1.PNG)
+
 4. Cree, en el directorio anterior, la página index.html, sólo con lo básico: título, campo para la captura del autor, botón de 'Get blueprints', campo <div> donde se mostrará el nombre del autor seleccionado, [la tabla HTML](https://www.w3schools.com/html/html_tables.asp) donde se mostrará el listado de planos (con sólo los encabezados), y un campo <div> donde se mostrará el total de puntos de los planos del autor. Recuerde asociarle identificadores a dichos componentes para facilitar su búsqueda mediante selectores.
 
 5. En el elemento \<head\> de la página, agregue las referencia a las librerías de jQuery, Bootstrap y a la hoja de estilos de Bootstrap. 
@@ -61,6 +63,7 @@
     </head>
     ```
 
+    ![](./img/Captura2.PNG)
 
 5. Suba la aplicación (mvn spring-boot:run), y rectifique:
     1. Que la página sea accesible desde:

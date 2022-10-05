@@ -108,7 +108,7 @@ Blueprint = (function(){
         canvas.width = canvas.width;
         apirest.deletePrint($("#author").val(),ID);
         $("table tbody").remove(); 
-        actualizarPlanos();
+        getBluePrintsByNameAndAuthor();
     }
 
     function createBlueprints(){
@@ -139,7 +139,6 @@ Blueprint = (function(){
             canvas = $("#canvas")[0];
             ctx = canvas.getContext("2d");
             let rect = canvas.getBoundingClientRect();
-            console.info("Inicializando elementos...");
             if(window.PointerEvent){
                 canvas.addEventListener("pointerdown", function(event){
                     var newPoint = {x:event.clientX-rect.left, y:event.clientY-rect.top-10};

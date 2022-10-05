@@ -1,0 +1,18 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+canvas {
+    background-color: #fff;
+    border: 1px solid #000;
+    left: 60rem; 
+    bottom: 30rem; 
+}
+
+table, th, td {
+    border:2px solid black;
+    background-color: #D3D3D3;
+}
+
